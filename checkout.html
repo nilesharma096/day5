@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - NiluKicks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Complete your purchase at NiluKicks checkout. Enter shipping details and choose payment options." />
+  <meta name="keywords" content="checkout, payment, shipping, buy shoes, online shop, NiluKicks" />
+  <style>
+    html {
+      transition: background-color 0.3s, color 0.3s;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100" data-theme="light">
+  <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-md">
+    <nav class="container mx-auto p-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold hover:text-indigo-300">NiluKicks</a>
+      <ul class="flex space-x-6 text-lg items-center">
+        <li><a href="index.html" class="hover:text-indigo-300">Shop</a></li>
+        <li><a href="contact.html" class="hover:text-indigo-300">Contact</a></li>
+        <li>
+          <button id="darkModeToggle" aria-label="Toggle Dark Mode"
+            class="ml-4 p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors"
+            title="Toggle Dark Mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-4xl mt-12 mb-12 transition-colors duration-300 dark:bg-gray-800">
+    <h1 class="text-4xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-8 text-center">Checkout</h1>
+
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="lg:w-1/2">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Shipping Information</h2>
+        <form id="shipping-form" class="space-y-4">
+          <div class="form-control w-full">
+            <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Full Name</span></label>
+            <input type="text" placeholder="John Doe" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+          </div>
+          <div class="form-control w-full">
+            <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Email</span></label>
+            <input type="email" placeholder="john.doe@example.com" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+          </div>
+          <div class="form-control w-full">
+            <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Phone Number</span></label>
+            <input type="tel" placeholder="+91 9876543210" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+          </div>
+          <div class="form-control w-full">
+            <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Address Line 1</span></label>
+            <input type="text" placeholder="House No., Building Name" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+          </div>
+          <div class="form-control w-full">
+            <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Address Line 2 (Optional)</span></label>
+            <input type="text" placeholder="Street, Locality" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-control">
+              <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">City</span></label>
+              <input type="text" placeholder="Mumbai" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+            </div>
+            <div class="form-control">
+              <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">State</span></label>
+              <input type="text" placeholder="Maharashtra" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-control">
+              <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Pincode</span></label>
+              <input type="text" placeholder="400001" pattern="\d{6}" maxlength="6" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" required />
+            </div>
+            <div class="form-control">
+              <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Country</span></label>
+              <input type="text" value="India" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" readonly />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="lg:w-1/2">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Order Summary</h2>
+        <div id="checkout-cart-items" class="space-y-3 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg max-h-60 overflow-y-auto mb-6">
+          <p class="text-gray-600 dark:text-gray-400 text-center">Cart is empty.</p>
+          </div>
+
+        <div class="border-t border-gray-300 dark:border-gray-700 pt-4 mb-6">
+          <div class="flex justify-between text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+            <span>Subtotal:</span> <span id="checkout-subtotal">₹0</span>
+          </div>
+          <div class="flex justify-between text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+            <span>Shipping:</span> <span id="checkout-shipping">₹0</span>
+          </div>
+          <div class="flex justify-between text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+            <span>Total:</span> <span id="checkout-total">₹0</span>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Payment Options</h2>
+        <div class="space-y-4">
+          <div class="form-control">
+            <label class="label cursor-pointer justify-start gap-2">
+              <input type="radio" name="payment-method" class="radio radio-primary" value="cod" checked />
+              <span class="label-text text-gray-700 dark:text-gray-300 font-semibold">Cash on Delivery (COD)</span>
+            </label>
+          </div>
+          <div class="form-control">
+            <label class="label cursor-pointer justify-start gap-2">
+              <input type="radio" name="payment-method" class="radio radio-primary" value="upi" />
+              <span class="label-text text-gray-700 dark:text-gray-300 font-semibold">UPI (Google Pay, PhonePe, Paytm)</span>
+            </label>
+          </div>
+          <div class="form-control">
+            <label class="label cursor-pointer justify-start gap-2">
+              <input type="radio" name="payment-method" class="radio radio-primary" value="card" />
+              <span class="label-text text-gray-700 dark:text-gray-300 font-semibold">Credit/Debit Card</span>
+            </label>
+          </div>
+          <div id="card-details-section" class="space-y-3 p-4 border border-gray-300 dark:border-gray-600 rounded-lg hidden">
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Card Number</span></label>
+                <input type="text" placeholder="XXXX XXXX XXXX XXXX" pattern="[0-9]{13,19}" maxlength="19" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="form-control">
+                    <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">Expiry Date (MM/YY)</span></label>
+                    <input type="text" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" maxlength="5" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" />
+                </div>
+                <div class="form-control">
+                    <label class="label"><span class="label-text text-gray-700 dark:text-gray-300">CVV</span></label>
+                    <input type="text" placeholder="XXX" pattern="\d{3,4}" maxlength="4" class="input input-bordered w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600" />
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="place-order-btn" class="w-full mt-8 btn btn-primary btn-lg">Place Order</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-container"></div> <footer class="mt-auto bg-indigo-700 text-white text-center p-4 transition-colors duration-300">
+    <p>© 2025 NiluKicks. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { initializePage, getCart, formatPrice, clearCart, showToast } from './js/shared.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializePage(); // Initialize dark mode, etc.
+
+      const checkoutCartItemsContainer = document.getElementById('checkout-cart-items');
+      const checkoutSubtotal = document.getElementById('checkout-subtotal');
+      const checkoutShipping = document.getElementById('checkout-shipping');
+      const checkoutTotal = document.getElementById('checkout-total');
+      const placeOrderBtn = document.getElementById('place-order-btn');
+      const shippingForm = document.getElementById('shipping-form');
+      const paymentMethodRadios = document.querySelectorAll('input[name="payment-method"]');
+      const cardDetailsSection = document.getElementById('card-details-section');
+
+      const SHIPPING_COST = 100; // Flat shipping cost in INR
+
+      function renderCheckoutSummary() {
+        const cart = getCart();
+        checkoutCartItemsContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+          checkoutCartItemsContainer.innerHTML = `<p class="text-gray-600 dark:text-gray-400 text-center">Your cart is empty. Please add items from the <a href="index.html" class="text-indigo-600 hover:underline">shop page</a>.</p>`;
+          placeOrderBtn.disabled = true;
+          return;
+        } else {
+          placeOrderBtn.disabled = false;
+        }
+
+        let subtotal = 0;
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'flex justify-between items-center bg-white dark:bg-gray-800 p-2 rounded-md shadow-sm';
+          itemDiv.innerHTML = `
+            <div class="flex items-center gap-2">
+              <img src="${item.imageUrl}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md">
+              <div>
+                <p class="font-semibold text-gray-800 dark:text-gray-100">${item.name}</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Size: ${item.size} | Qty: ${item.quantity}</p>
+              </div>
+            </div>
+            <span class="font-bold text-gray-800 dark:text-gray-100">${formatPrice(itemTotal)}</span>
+          `;
+          checkoutCartItemsContainer.appendChild(itemDiv);
+        });
+
+        const total = subtotal + SHIPPING_COST;
+
+        checkoutSubtotal.textContent = formatPrice(subtotal);
+        checkoutShipping.textContent = formatPrice(SHIPPING_COST);
+        checkoutTotal.textContent = formatPrice(total);
+      }
+
+      // Toggle card details section based on payment method
+      paymentMethodRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          if (radio.value === 'card') {
+            cardDetailsSection.classList.remove('hidden');
+            cardDetailsSection.querySelectorAll('input').forEach(input => input.setAttribute('required', ''));
+          } else {
+            cardDetailsSection.classList.add('hidden');
+            cardDetailsSection.querySelectorAll('input').forEach(input => {
+                input.removeAttribute('required');
+                input.value = ''; // Clear card details on switch
+            });
+          }
+        });
+      });
+
+      placeOrderBtn.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        const cart = getCart();
+        if (cart.length === 0) {
+          showToast('Your cart is empty. Cannot place an order.', 'warning');
+          return;
+        }
+
+        // Basic form validation
+        if (!shippingForm.checkValidity()) {
+          showToast('Please fill in all required shipping details.', 'error');
+          shippingForm.reportValidity(); // Show native browser validation messages
+          return;
+        }
+
+        const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+        if (selectedPaymentMethod === 'card') {
+            const cardNumber = cardDetailsSection.querySelector('input[placeholder="XXXX XXXX XXXX XXXX"]').value;
+            const expiryDate = cardDetailsSection.querySelector('input[placeholder="MM/YY"]').value;
+            const cvv = cardDetailsSection.querySelector('input[placeholder="XXX"]').value;
+
+            if (!cardNumber || !expiryDate || !cvv) {
+                showToast('Please fill in all card details.', 'error');
+                return;
+            }
+            // Add more robust client-side validation for card details here
+            // e.g., check length, format, Luhn algorithm for card number
+        }
+
+        // Simulate order placement
+        setTimeout(() => {
+          // In a real application, you would send this data to a server
+          // const orderDetails = {
+          //     shipping: { /* form data */ },
+          //     cart: getCart(),
+          //     total: getCartTotal() + SHIPPING_COST,
+          //     paymentMethod: selectedPaymentMethod
+          // };
+          // console.log("Placing order:", orderDetails);
+
+          clearCart(); // Clear cart after successful order placement
+          localStorage.setItem('lastOrderPlaced', 'true'); // Flag to show confirmation
+          window.location.href = 'order-confirmation.html';
+        }, 1000); // Simulate network delay
+      });
+
+      renderCheckoutSummary();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NiluKicks - Shop Trendy Shoes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Shop the latest collection of trendy shoes at NiluKicks. Find sneakers, formal shoes, casual footwear, and more." />
+  <meta name="keywords" content="shoes, sneakers, footwear, casual, formal, boots, sandals, online shoe store, NiluKicks, shop, trendy, fashion, Nike, Adidas, Converse" />
+  <meta property="og:title" content="NiluKicks - Your Go-To Shoe Shop" />
+  <meta property="og:description" content="Discover the perfect pair for every occasion. Shop now at NiluKicks for quality, comfort, and style." />
+  <meta property="og:image" content="img/social-share-shoes.jpg" />
+  <meta property="og:url" content="https://yourusername.github.io/your-repo-name/index.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@yourtwitterhandle" />
+  <meta name="twitter:title" content="NiluKicks - Shop Trendy Shoes" />
+  <meta name="twitter:description" content="Shop the latest collection of trendy shoes at NiluKicks." />
+  <meta name="twitter:image" content="img/social-share-shoes.jpg" />
+  <style>
+    /* Custom styles for smooth transitions and dark mode adjustments */
+    html {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .product-card {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    /* Hide scrollbar for category/brand cards if desired, still scrollable */
+    .overflow-x-auto::-webkit-scrollbar {
+        display: none;
+    }
+    .overflow-x-auto {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    /* === THE ONE OPTION SOLUTION (RETAINED) === */
+    /* This overrides DaisyUI's default overlay for image-full cards. */
+    .card.image-full:before {
+      background-color: rgba(0, 0, 0, 0.2) !important; /* Adjust '0.2' as needed (0.0 to 1.0) */
+    }
+    /* =============================== */
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Replace G-XXXXXXX
+  </script>
+  <script type="module" src="shared.js"></script>
+<script type="module">
+  import { addToCart, updateCartDisplay } from './shared.js';
+
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.productId;
+      const size = button.dataset.defaultSize;
+      addToCart(productId, size);
+      updateCartDisplay();
+    });
+  });
+</script>
+</head>
+
+  <body class="flex flex-col min-h-screen bg-gray-50 text-gray-800 font-sans transition-colors duration-300"></body>
+    <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-md">
+    <nav class="container mx-auto p-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold hover:text-indigo-300">NiluKicks</a>
+      <button id="menuButton" class="lg:hidden btn btn-ghost text-white" aria-label="Toggle Menu" aria-expanded="false">
+        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <ul id="navLinks" class="hidden lg:flex space-x-6 text-lg items-center">
+        <li class="relative w-full max-w-lg">
+            <input type="text" placeholder="Search for shoes..." class="input input-sm input-bordered bg-white text-gray-800 rounded-full pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-full" id="search-input-desktop" />
+            <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
+        </li>
+        <li><a href="index.html" class="hover:text-indigo-300 text-white font-semibold underline">Home</a></li>
+        <li><a href="portfolio.html" class="hover:text-indigo-300 text-white">Portfolio</a></li>
+        <li><a href="contact.html" class="hover:text-indigo-300 text-white">Contact</a></li>
+    
+        <li>
+          <button id="darkModeToggle" aria-label="Toggle Dark Mode"
+            class="ml-4 p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors"
+            title="Toggle Dark Mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden bg-indigo-700 text-white hidden flex-col px-6 pb-6 space-y-4">
+      <a href="index.html" class="block py-2 hover:text-indigo-300 font-semibold underline">Home</a>
+      <a href="product.html" class="block py-2 hover:text-indigo-300">Shop</a>
+      <a href="portfolio.html" class="block py-2 hover:text-indigo-300">Portfolio</a>
+      <a href="contact.html" class="block py-2 hover:text-indigo-300 text-white">Contact</a>
+      <div class="relative w-full">
+        <input type="text" placeholder="Search..." class="input input-sm input-bordered bg-white text-gray-800 rounded-full w-full pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-300" id="search-input-mobile" />
+        <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        </button>
+      </div>
+      <a href="cart.html" id="view-cart-btn-mobile" class="btn btn-ghost text-white flex items-center justify-start">
+        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.5 14 6.333 14H15a1 1 0 000-2H6.333a.834.834 0 01-.629-.295L4.75 9.184V9.18l-1.5-6H3V1z"></path><path d="M6 14a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+        Cart (<span id="cart-count-mobile">0</span>)
+      </a>
+      <button id="darkModeToggleMobile" aria-label="Toggle Dark Mode"
+        class="w-full p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors text-center"
+        title="Toggle Dark Mode">🌙</button>
+    </div>
+  </header>
+  <main class="flex-grow container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-screen-2xl mt-12 transition-colors duration-300 dark:bg-gray-800" data-animate>
+    <h1 class="text-4xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-8 text-center">NiluKicks - Your Perfect Pair Awaits</h1>
+
+    <section class="hero-section mb-12">
+      <div class="carousel w-full h-80 md:h-96 rounded-box shadow-xl">
+        <div id="slide1" class="carousel-item relative w-full">
+          <img src="img/redsneaker1.jpg" alt="Red Sneakers" class="w-full object-cover rounded-box" loading="lazy" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
+          </div>
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+              <div class="text-center text-white">
+                  <h3 class="text-4xl md:text-5xl font-bold mb-4 animate-pulse text-gray-100">Step Up Your Style!</h3>
+                  <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">Discover the latest trends in footwear for every occasion.</p>
+                  <a href="#product-grid-section" class="mt-6 btn btn-lg btn-primary text-black font-semibold hover:scale-105 transition-transform duration-300">Shop New Arrivals</a>
+              </div>
+          </div>
+        </div>
+        <div id="slide2" class="carousel-item relative w-full">
+          <img src="img/runningshoes2.jpg" alt="Running Shoes" class="w-full object-cover rounded-box" loading="lazy" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" class="btn btn-circle">❮</a>
+            <a href="#slide3" class="btn btn-circle">❯</a>
+          </div>
+           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+              <div class="text-center text-white">
+                  <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-100">Comfort Meets Performance</h2>
+                  <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">Find the perfect pair of running shoes for your next adventure.</p>
+                  <a href="#product-grid-section" class="mt-6 btn btn-lg btn-accent text-white font-semibold hover:scale-105 transition-transform duration-300">Explore Performance</a>
+              </div>
+          </div>
+        </div>
+        <div id="slide3" class="carousel-item relative w-full">
+          <img src="img/formalshoes2.jpg" alt="Formal Shoes" class="w-full object-cover rounded-box" loading="lazy" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" class="btn btn-circle">❮</a>
+            <a href="#slide4" class="btn btn-circle">❯</a>
+          </div>
+           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+              <div class="text-center text-white">
+                  <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-100">Elegance for Every Occasion</h2>
+                  <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">Complete your look with our sophisticated range of formal footwear.</p>
+                  <a href="#product-grid-section" class="mt-6 btn btn-lg btn-info text-white font-semibold hover:scale-105 transition-transform duration-300">View Formal Wear</a>
+              </div>
+          </div>
+        </div>
+        <div id="slide4" class="carousel-item relative w-full">
+          <img src="img/casualshoes.jpg" alt="Casual Shoes" class="w-full object-cover rounded-box" loading="lazy" />
+          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" class="btn btn-circle">❮</a>
+            <a href="#slide1" class="btn btn-circle">❯</a>
+          </div>
+           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+              <div class="text-center text-white">
+                  <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-100">Casual Cool, Unmatched Comfort</h2>
+                  <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">Step out in style with our versatile range of casual shoes.</p>
+                  <a href="#product-grid-section" class="mt-6 btn btn-lg btn-warning text-white font-semibold hover:scale-105 transition-transform duration-300">Discover Casuals</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-section my-12">
+        <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">Shop by Category / Brand</h2>
+        <div class="flex space-x-4 py-4 overflow-x-auto justify-start">
+            <div class="card w-64 bg-base-100 shadow-xl image-full cursor-pointer hover:scale-105 transition-transform duration-300" data-filter-category="sneakers">
+                <figure><img src="img/sneaker.jpg" alt="Sneakers" class="object-cover" loading="lazy" /></figure>
+                <div class="card-body justify-center items-center">
+                    <h3 class="card-title text-white text-3xl font-bold">Sneakers</h3>
+                </div>
+            </div>
+            <div class="card w-64 bg-base-100 shadow-xl image-full cursor-pointer hover:scale-105 transition-transform duration-300" data-filter-category="formal">
+                <figure><img src="img/formalshoes.jpg" alt="Formal Shoes" class="object-cover" loading="lazy" /></figure>
+                <div class="card-body justify-center items-center">
+                    <h3 class="card-title text-white text-3xl font-bold">Formal</h3>
+                </div>
+            </div>
+            <div class="card w-64 bg-base-100 shadow-xl image-full cursor-pointer hover:scale-105 transition-transform duration-300" data-filter-category="sandals">
+                <figure><img src="img/sandalas.jpg" alt="Sandals" class="object-cover" loading="lazy" /></figure>
+                <div class="card-body justify-center items-center">
+                    <h3 class="card-title text-white text-3xl font-bold">Sandals</h3>
+                </div>
+            </div>
+            <div class="card w-64 bg-base-100 shadow-xl image-full cursor-pointer hover:scale-105 transition-transform duration-300" data-filter-brand="Adidas">
+                <figure><img src="img/adidas.jpg" alt="Adidas" class="object-cover" loading="lazy" /></figure>
+                <div class="card-body justify-center items-center">
+                    <h3 class="card-title text-white text-3xl font-bold">Adidas</h3>
+                </div>
+            </div>
+            <div class="card w-64 bg-base-100 shadow-xl image-full cursor-pointer hover:scale-105 transition-transform duration-300" data-filter-brand="Nike">
+                <figure><img src="img/nike.jpg" alt="Nike" class="object-cover" loading="lazy" /></figure>
+                <div class="card-body justify-center items-center">
+                    <h3 class="card-title text-white text-3xl font-bold">Nike</h3>
+                </div>
+            </div>
+        
+        </div>
+    </section>
+
+    <section class="mission-section bg-indigo-50 dark:bg-gray-800 p-8 rounded-lg shadow-inner mb-12">
+        <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">Our Mission</h2>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <img src="img/p1.jpeg" alt="People walking with stylish shoes" class="rounded-lg shadow-md object-cover w-full h-auto" loading="lazy">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                    At NiluKicks, we believe that the right pair of shoes can transform your day. Our mission is to provide every customer with high-quality, comfortable, and stylish footwear that empowers them to step confidently through life.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    We handpick each item in our collection, focusing on craftsmanship, design, and ethical sourcing. From the latest trends to timeless classics, we are dedicated to offering a diverse range that caters to every taste and occasion.
+                </p>
+                <a href="about.html" class="btn btn-link text-indigo-600 dark:text-indigo-400 mt-4">Read More About Us &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section mb-12">
+        <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-8 text-center">Our Core Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700">
+                <figure class="mx-auto mb-4">
+                    <img src="img/quality.jpg" alt="Quality Icon" class="w-16 h-16 dark:filter dark:invert" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Uncompromising Quality</h3>
+                <p class="text-gray-700 dark:text-gray-300">Every pair is meticulously inspected to ensure lasting comfort and durability.</p>
+            </div>
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700">
+                <figure class="mx-auto mb-4">
+                    <img src="img/sustainable.jpg" alt="Sustainability Icon" class="w-16 h-16 dark:filter dark:invert" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Sustainable Practices</h3>
+                <p class="text-gray-700 dark:text-gray-300">Committed to eco-friendly materials and ethical production processes.</p>
+            </div>
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700">
+                <figure class="mx-auto mb-4">
+                    <img src="img/innovative.png" alt="Innovation Icon" class="w-16 h-16 dark:filter dark:invert" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Innovative Design</h3>
+                <p class="text-gray-700 dark:text-gray-300">Pushing boundaries with cutting-edge designs and footwear technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-grid-section" class="products-section mb-12">
+      <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">Our Latest Collection</h2>
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <label for="sort-by" class="text-lg font-semibold text-indigo-700 dark:text-indigo-300">Sort By:</label>
+          <select id="sort-by" class="select select-bordered select-sm w-full md:w-auto bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+            <option value="default">Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A-Z</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <label for="filter-category" class="text-lg font-semibold text-indigo-700 dark:text-indigo-300">Category:</label>
+          <select id="filter-category" class="select select-bordered select-sm w-full md:w-auto bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+            <option value="all">All</option>
+            <option value="sneakers">Sneakers</option>
+            <option value="formal">Formal</option>
+            <option value="boots">Boots</option>
+            <option value="sandals">Sandals</option>
+            <option value="running">Running</option>
+            <option value="casual">Casual</option>
+          </select>
+        </div>
+         <div class="flex items-center gap-2 w-full md:w-auto">
+          <label for="filter-brand" class="text-lg font-semibold text-indigo-700 dark:text-indigo-300">Brand:</label>
+          <select id="filter-brand" class="select select-bordered select-sm w-full md:w-auto bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+            <option value="all">All</option>
+            <option value="Nike">Nike</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Converse">Converse</option>
+            <option value="Timberland">Timberland</option>
+            <option value="Birkenstock">Birkenstock</option>
+            <option value="Clarks">Clarks</option>
+            <option value="Puma">Puma</option>
+            <option value="Skechers">Skechers</option>
+            <option value="Reebok">Reebok</option>
+            <option value="Merrell">Merrell</option>
+            <option value="ASICS">ASICS</option>
+            <option value="Vans">Vans</option>
+            <option value="Steve Madden">Steve Madden</option>
+            <option value="Zara">Zara</option>
+            <option value="Allen Edmonds">Allen Edmonds</option>
+            <option value="Columbia">Columbia</option>
+            <option value="ECCO">ECCO</option>
+            <option value="Havaianas">Havaianas</option>
+            <option value="Salomon">Salomon</option>
+            <option value="Sperry">Sperry</option>
+            <option value="Caterpillar">Caterpillar</option>
+            <option value="Aldo">Aldo</option>
+            <option value="Keen">Keen</option>
+            <option value="Doc Martens">Doc Martens</option>
+            <option value="Ted Baker">Ted Baker</option>
+            <option value="Brooks">Brooks</option>
+            <option value="Balenciaga">Balenciaga</option>
+            <option value="Sam Edelman">Sam Edelman</option>
+            <option value="Jordan">Jordan</option>
+            <option value="Crocs">Crocs</option>
+          </select>
+        </div>
+      </div>
+      <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/1.jpg" alt="Classic white Nike sneakers" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Classic White Sneakers</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Nike - sneakers</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹7500.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="1" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="1">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/2.jpg" alt="Adidas UltraBoost running shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">UltraBoost Running Shoes</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Adidas - running</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹12500.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="2" data-default-size="US 10">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="2">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/3.jpg" alt="Timberland waterproof hiking boots" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Waterproof Hiking Boots</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Timberland - boots</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹15000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="5" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="5">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/4.jpg" alt="Brown leather formal oxford shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Premium Leather Oxfords</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Clarks - formal</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹10000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="4" data-default-size="US 8">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="4">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/5.jpg" alt="Puma Suede Classic sneakers" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Suede Classic</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Puma - sneakers</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹6800.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="6" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="6">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/6.jpg" alt="Skechers Go Walk casual shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Go Walk Comfort</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Skechers - casual</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹5200.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="7" data-default-size="US 8">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="7">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/7.jpg" alt="Reebok Classic Leather sneakers" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Classic Leather</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Reebok - sneakers</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹7000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="8" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="8">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/8.jpg" alt="Merrell Moab 2 hiking shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Moab 2 Ventilator</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Merrell - boots</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹11500.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="9" data-default-size="US 10">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="9">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/9.jpg" alt="ASICS Gel-Kayano running shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Gel-Kayano 28</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">ASICS - running</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹13000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="10" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="10">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/10.jpg" alt="Vans Old Skool skateboarding shoes" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Old Skool Skate</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Vans - sneakers</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹6000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="11" data-default-size="US 8">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="11">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/11.jpg" alt="Steve Madden loafers" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Stylish Loafers</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Steve Madden - formal</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹9500.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="12" data-default-size="US 7">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="12">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/12.jpg" alt="Zara ankle boots" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Chic Ankle Boots</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Zara - boots</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹8000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="13" data-default-size="EU 38">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="13">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/13.jpg" alt="Allen Edmonds Park Avenue" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Park Avenue Oxford</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Allen Edmonds - formal</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹20000.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="14" data-default-size="US 9">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="14">Quick View</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-xl product-card">
+            <figure class="h-48">
+                <img src="img/14.jpg" alt="Columbia Newton Ridge hiking boots" class="w-full h-full object-cover" loading="lazy"/>
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="card-title text-xl font-semibold">Newton Ridge Plus</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Columbia - boots</p>
+                <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹9800.00</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="15" data-default-size="US 11">Add to Cart</button>
+                    <button class="btn btn-outline btn-sm view-product-btn" data-product-id="15">Quick View</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="benefits-section mb-12">
+        <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-8 text-center">Why Choose NiluKicks?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700 hover:shadow-xl transition-shadow duration-300">
+                <figure class="mx-auto mb-4">
+                    <img src="img/4.jpg" alt="Comfortable Shoes" class="rounded-full w-32 h-32 object-cover border-4 border-indigo-200 dark:border-indigo-600" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Unmatched Comfort</h3>
+                <p class="text-gray-700 dark:text-gray-300">Experience cloud-like comfort with every step, crafted for your daily wear.</p>
+            </div>
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700 hover:shadow-xl transition-shadow duration-300">
+                <figure class="mx-auto mb-4">
+                    <img src="img/6.jpg" alt="Stylish Shoes" class="rounded-full w-32 h-32 object-cover border-4 border-indigo-200 dark:border-indigo-600" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Trendsetting Styles</h3>
+                <p class="text-gray-700 dark:text-gray-300">Stay ahead of the curve with our curated collection of the latest shoe fashion.</p>
+            </div>
+            <div class="card bg-base-100 shadow-lg text-center p-6 dark:bg-gray-700 hover:shadow-xl transition-shadow duration-300">
+                <figure class="mx-auto mb-4">
+                    <img src="img/2.jpg" alt="Durable Shoes" class="rounded-full w-32 h-32 object-cover border-4 border-indigo-200 dark:border-indigo-600" loading="lazy">
+                </figure>
+                <h3 class="font-bold text-xl mb-2 text-indigo-700 dark:text-indigo-300">Built to Last</h3>
+                <p class="text-gray-700 dark:text-gray-300">Invest in quality footwear designed for durability and long-term enjoyment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section mb-12">
+        <h2 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">What Our Customers Say</h2>
+        <div class="carousel w-full rounded-box shadow-lg bg-gray-100 dark:bg-gray-700 p-6">
+            <div id="testi-item1" class="carousel-item w-full flex flex-col items-center justify-center p-8 text-center">
+                <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-4">"Absolutely love my new sneakers from NiluKicks! They're so comfortable and stylish. Fast delivery too!"</blockquote>
+                <p class="font-bold text-indigo-600 dark:text-indigo-400">- Aisha K.</p>
+                <div class="rating mt-2">
+                    <input type="radio" name="testi-rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                    <input type="radio" name="testi-rating-1" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-1" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-1" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-1" class="mask mask-star-2 bg-orange-400" />
+                </div>
+            </div>
+            <div id="testi-item2" class="carousel-item w-full flex flex-col items-center justify-center p-8 text-center">
+                <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-4">"The formal shoes are top-notch quality. Perfect for my office wear. NiluKicks is my new favorite!"</blockquote>
+                <p class="font-bold text-indigo-600 dark:text-indigo-400">- Vikram R.</p>
+                <div class="rating mt-2">
+                    <input type="radio" name="testi-rating-2" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                    <input type="radio" name="testi-rating-2" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-2" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-2" class="mask mask-star-2 bg-orange-400" />
+                </div>
+            </div>
+            <div id="testi-item3" class="carousel-item w-full flex flex-col items-center justify-center p-8 text-center">
+                <blockquote class="text-xl italic text-gray-700 dark:text-gray-300 mb-4">"Finally, a store with a great selection of boots! The pair I got is exactly what I was looking for."</blockquote>
+                <p class="font-bold text-indigo-600 dark:text-indigo-400">- Fatima H.</p>
+                <div class="rating mt-2">
+                    <input type="radio" name="testi-rating-3" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-3" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                    <input type="radio" name="testi-rating-3" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="testi-rating-3" class="mask mask-star-2 bg-orange-400" />
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center w-full py-2 gap-2 mt-4">
+            <a href="#testi-item1" class="btn btn-xs">1</a>
+            <a href="#testi-item2" class="btn btn-xs">2</a>
+            <a href="#testi-item3" class="btn btn-xs">3</a>
+        </div>
+    </section>
+
+    <section class="cta-newsletter-section bg-indigo-600 dark:bg-indigo-800 text-white p-8 rounded-lg shadow-xl mb-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Don't Miss Out!</h2>
+        <p class="text-lg md:text-xl mb-6">Get exclusive offers, new arrival alerts, and style tips directly to your inbox.</p>
+        <div class="form-control w-full max-w-md mx-auto">
+            <div class="relative">
+                <input type="email" placeholder="Enter your email address" class="input input-bordered w-full pr-16 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+                <button class="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+
+    <dialog id="product_details_modal" class="modal">
+      <div class="modal-box w-11/12 max-w-4xl bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-6 rounded-lg shadow-lg">
+        <h3 id="modal-product-name" class="font-bold text-3xl text-indigo-700 dark:text-indigo-300 mb-4"></h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <figure class="mb-4 md:mb-0">
+                <img id="modal-product-image" src="" alt="Product Image" class="w-full h-80 object-cover rounded-md mx-auto border border-gray-200 dark:border-gray-600">
+            </figure>
+            <div>
+                <p id="modal-product-description" class="py-4 text-lg leading-relaxed"></p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2"><span class="font-semibold">Category:</span> <span id="modal-product-category"></span></p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Brand:</span> <span id="modal-product-brand"></span></p>
+                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Gender:</span> <span id="modal-product-gender"></span></p>
+                <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                    <span id="modal-product-price" class="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400"></span>
+                    <div class="form-control flex-grow">
+                        <label class="label">
+                          <span class="label-text text-gray-700 dark:text-gray-300">Select Size:</span>
+                        </label>
+                        <select id="modal-product-sizes" class="select select-bordered w-full bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </select>
+                    </div>
+                     <div class="form-control flex-grow">
+                        <label class="label">
+                          <span class="label-text text-gray-700 dark:text-gray-300">Quantity:</span>
+                        </label>
+                         <input type="number" id="modal-product-quantity" value="1" min="1" class="input input-bordered w-full bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+                <div class="modal-action mt-6 flex justify-end flex-wrap gap-2">
+                  <form method="dialog" class="flex gap-2">
+                    <button id="modal-add-to-cart-btn" class="btn btn-primary" data-product-id="">Add to Cart</button>
+                    <button class="btn btn-neutral">
+                        <a id="modal-view-details-btn" href="#" class="text-white">View Full Details</a>
+                    </button>
+                    <button class="btn btn-ghost">Close</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </dialog>
+  </main>
+  <div class="drawer drawer-end z-50">
+    <input id="cart-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <label for="cart-drawer" id="view-cart-btn" class="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-800 z-40 flex items-center justify-center cursor-pointer">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5H2m5 8a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path>
+        </svg>
+        <span id="cart-count">0</span>
+      </label>
+    </div>
+    <div class="drawer-side">
+      <label for="cart-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside id="cart-sidebar-drawer" class="h-full w-80 bg-gray-100 dark:bg-gray-800 shadow-xl p-6 border-l border-gray-300 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300">Your Cart</h3>
+          <label for="cart-drawer" class="btn btn-sm btn-circle btn-ghost text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-2xl font-semibold">
+            &times;
+          </label>
+        </div>
+        <div id="cart-items" class="space-y-4 overflow-y-auto max-h-[calc(100%-160px)] pb-4">
+          <p id="empty-cart-message" class="text-gray-600 dark:text-gray-400 text-center">Your cart is empty.</p>
+        </div>
+        <div class="border-t border-gray-300 dark:border-gray-700 pt-4 mt-4">
+          <p class="text-xl font-bold flex justify-between">Total: <span id="cart-total">$0.00</span></p>
+          <a href="cart.html" id="checkout-btn" class="w-full mt-4 btn btn-success">View Cart & Checkout</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <button id="scroll-to-top-btn" class="fixed bottom-6 left-6 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-800 transition-opacity duration-300 opacity-0 z-40">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+  <div id="toast-container" class="fixed top-4 right-4 z-[999] flex flex-col items-end space-y-2"></div>
+  <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex flex-col md:flex-row items-center justify-between z-[100] transform translate-y-full transition-transform duration-500">
+    <p class="text-sm text-center md:text-left mb-2 md:mb-0">
+      This site uses cookies to ensure you get the best experience. By continuing to use our site, you agree to our <a href="#" class="underline hover:text-indigo-300 text-white">Cookie Policy</a>.
+    </p>
+    <div class="flex space-x-2">
+      <button id="accept-cookies-btn" class="btn btn-sm btn-primary">Accept</button>
+      <button id="decline-cookies-btn" class="btn btn-sm btn-ghost">Decline</button>
+    </div>
+  </div>
+  <footer class="mt-auto bg-indigo-700  text-center p-4 transition-colors duration-300">
+    <p class="text-white">© 2025 NiluKicks. All rights reserved.
+         |
+        <a href="portfolio.html" class="hover:underline text-white">Portfolio</a> |
+        <a href="contact.html" class="hover:underline text-white">Contact</a> |
+        <a href="#" class="hover:underline text-white">Privacy Policy</a> |
+        <a href="#" class="hover:underline text-white">Terms & Conditions</a>
+    </p>
+  </footer>
+
+  <script type="module" src="js/shared.js"></script>
+  <script type="module" src="js/product-data.js"></script>
+  <script type="module">
+    import { PRODUCTS, getProductById } from './js/product-data.js';
+    import { addToCart, showToastNotification, updateCartDisplay } from './js/shared.js';
+
+    const productList = document.getElementById('product-list');
+    const sortBySelect = document.getElementById('sort-by');
+    const filterCategorySelect = document.getElementById('filter-category');
+    const filterBrandSelect = document.getElementById('filter-brand');
+    const categoryBrandCards = document.querySelectorAll('.categories-section .card');
+    const searchInputDesktop = document.getElementById('search-input-desktop');
+    const searchInputMobile = document.getElementById('search-input-mobile');
+
+    let currentProducts = [...PRODUCTS]; // Use a mutable copy for filtering/sorting
+
+    // IMPORTANT: This function will now be called by the event listeners for filters/sorts.
+    // If you add manual HTML, this function will overwrite it when those events fire.
+    // For pure manual test, temporarily comment out the initial call to applyFiltersAndSort() below.
+    function renderProducts(productsToRender) {
+        if (!productList) return;
+        productList.innerHTML = ''; // Clear existing content before rendering dynamically
+        if (productsToRender.length === 0) {
+            productList.innerHTML = '<p class="col-span-full text-center text-gray-600 dark:text-gray-400">No products found matching your criteria.</p>';
+            return;
+        }
+
+        productsToRender.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'card bg-base-100 shadow-xl product-card';
+            productCard.innerHTML = `
+                <figure class="h-48">
+                    <img src="${product.image}" alt="${product.alt}" class="w-full h-full object-cover" loading="lazy"/>
+                </figure>
+                <div class="card-body p-4">
+                    <h3 class="card-title text-xl font-semibold">${product.name}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">${product.brand} - ${product.category}</p>
+                    <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">₹${(product.price * 83.50).toFixed(2)}</p>
+                    <div class="card-actions justify-end mt-4">
+                        <button class="btn btn-primary btn-sm add-to-cart-btn" data-product-id="${product.id}" data-default-size="${product.sizes[0] || 'One Size'}">Add to Cart</button>
+                        <button class="btn btn-outline btn-sm view-product-btn" data-product-id="${product.id}">Quick View</button>
+                    </div>
+                </div>
+            `;
+            productList.appendChild(productCard);
+        });
+
+        // Add event listeners for direct Add to Cart buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.productId;
+                const defaultSize = e.currentTarget.dataset.defaultSize; // Get default size from data attribute
+                const product = getProductById(productId);
+                if (product) {
+                    addToCart(product, 1, defaultSize); // Add 1 quantity with the default size
+                    showToastNotification(`${product.name} (Size: ${defaultSize}) added to cart!`, 'success');
+                } else {
+                    showToastNotification('Product not found!', 'error');
+                }
+                e.stopPropagation(); // Prevent quick view modal from opening if card has cursor-pointer
+            });
+        });
+
+        // Add event listeners for quick view buttons
+        document.querySelectorAll('.view-product-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.productId;
+                openProductModal(productId);
+                e.stopPropagation(); // Prevent quick view modal from opening if card has cursor-pointer
+            });
+        });
+    }
+
+    function applyFiltersAndSort() {
+        let filteredProducts = [...PRODUCTS];
+
+        // Apply Search Filter
+        const searchTermDesktop = searchInputDesktop.value.toLowerCase();
+        const searchTermMobile = searchInputMobile.value.toLowerCase();
+        const activeSearchTerm = searchTermDesktop || searchTermMobile;
+
+        if (activeSearchTerm) {
+            filteredProducts = filteredProducts.filter(product =>
+                product.name.toLowerCase().includes(activeSearchTerm) ||
+                product.brand.toLowerCase().includes(activeSearchTerm) ||
+                product.category.toLowerCase().includes(activeSearchTerm) ||
+                product.description.toLowerCase().includes(activeSearchTerm)
+            );
+        }
+
+        // Apply Category Filter
+        const selectedCategory = filterCategorySelect.value;
+        if (selectedCategory !== 'all') {
+            filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
+        }
+
+        // Apply Brand Filter
+        const selectedBrand = filterBrandSelect.value;
+        if (selectedBrand !== 'all') {
+            filteredProducts = filteredProducts.filter(product => product.brand === selectedBrand);
+        }
+
+        // Apply Sorting
+        const sortBy = sortBySelect.value;
+        if (sortBy === 'price-asc') {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (sortBy === 'price-desc') {
+            filteredProducts.sort((a, b) => b.price - a.price);
+        } else if (sortBy === 'name-asc') {
+            filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        renderProducts(filteredProducts);
+    }
+
+    // Event Listeners for Filters and Sort
+    sortBySelect.addEventListener('change', applyFiltersAndSort);
+    filterCategorySelect.addEventListener('change', applyFiltersAndSort);
+    filterBrandSelect.addEventListener('change', applyFiltersAndSort);
+    searchInputDesktop.addEventListener('input', applyFiltersAndSort);
+    searchInputMobile.addEventListener('input', applyFiltersAndSort);
+
+    // Event Listeners for Category/Brand Cards
+    categoryBrandCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const filterCategory = card.dataset.filterCategory;
+            const filterBrand = card.dataset.filterBrand;
+
+            if (filterCategory) {
+                filterCategorySelect.value = filterCategory;
+                filterBrandSelect.value = 'all'; // Reset brand filter
+            } else if (filterBrand) {
+                filterBrandSelect.value = filterBrand;
+                filterCategorySelect.value = 'all'; // Reset category filter
+            }
+            applyFiltersAndSort();
+            // Optional: Scroll to products section after filtering
+            document.getElementById('product-grid-section').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex-col');
+        });
+    }
+
+    // Dark Mode Toggle Functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+    const htmlElement = document.documentElement; // Targets the <html> tag
+
+    function toggleDarkMode() {
+        if (htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+            htmlElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+    if (darkModeToggleMobile) {
+        darkModeToggleMobile.addEventListener('click', toggleDarkMode);
+    }
+
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        htmlElement.classList.add('dark');
+        htmlElement.setAttribute('data-theme', 'dark');
+    } else {
+        htmlElement.classList.remove('dark');
+        htmlElement.setAttribute('data-theme', 'light');
+    }
+
+    // Product Modal Functionality (using DaisyUI modal)
+    const productModal = document.getElementById('product_details_modal');
+    const modalProductName = document.getElementById('modal-product-name');
+    const modalProductImage = document.getElementById('modal-product-image');
+    const modalProductDescription = document.getElementById('modal-product-description');
+    const modalProductCategory = document.getElementById('modal-product-category');
+    const modalProductBrand = document.getElementById('modal-product-brand');
+    const modalProductGender = document.getElementById('modal-product-gender');
+    const modalProductPrice = document.getElementById('modal-product-price');
+    const modalProductSizes = document.getElementById('modal-product-sizes');
+    const modalProductQuantity = document.getElementById('modal-product-quantity');
+    const modalAddToCartBtn = document.getElementById('modal-add-to-cart-btn');
+    const modalViewDetailsBtn = document.getElementById('modal-view-details-btn');
+
+    function openProductModal(productId) {
+        const product = getProductById(productId);
+        if (product) {
+            modalProductName.textContent = product.name;
+            modalProductImage.src = product.image;
+            modalProductImage.alt = product.alt;
+            modalProductDescription.textContent = product.description;
+            modalProductCategory.textContent = product.category;
+            modalProductBrand.textContent = product.brand;
+            modalProductGender.textContent = product.gender;
+            modalProductPrice.textContent = `₹${(product.price * 83.50).toFixed(2)}`; // INR conversion here too
+            modalProductQuantity.value = 1; // Reset quantity
+
+            // Populate sizes
+            modalProductSizes.innerHTML = ''; // Clear previous options
+            if (product.sizes && product.sizes.length > 0) {
+                product.sizes.forEach(size => {
+                    const option = document.createElement('option');
+                    option.value = size;
+                    option.textContent = size;
+                    modalProductSizes.appendChild(option);
+                });
+            } else {
+                 const option = document.createElement('option');
+                 option.value = 'One Size';
+                 option.textContent = 'One Size';
+                 modalProductSizes.appendChild(option);
+            }
+
+            // Update Add to Cart button data
+            modalAddToCartBtn.dataset.productId = product.id;
+            modalViewDetailsBtn.href = `product.html?id=${product.id}`;
+
+            productModal.showModal();
+        } else {
+            showToastNotification('Product not found!', 'error');
+        }
+    }
+
+    // Add to Cart from Modal
+    modalAddToCartBtn.addEventListener('click', () => {
+        const productId = modalAddToCartBtn.dataset.productId;
+        const quantity = parseInt(modalProductQuantity.value, 10);
+        const size = modalProductSizes.value;
+        const product = getProductById(productId);
+
+        if (product && quantity > 0) {
+            addToCart(product, quantity, size);
+            showToastNotification(`${quantity}x ${product.name} (Size: ${size}) added to cart!`, 'success');
+            productModal.close();
+        } else {
+            showToastNotification('Please select a valid quantity.', 'warning');
+        }
+    });
+
+    // Scroll-to-top button
+    const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show button after scrolling 300px
+            scrollToTopBtn.classList.remove('opacity-0');
+            scrollToTopBtn.classList.add('opacity-100');
+        } else {
+            scrollToTopBtn.classList.remove('opacity-100');
+            scrollToTopBtn.classList.add('opacity-0');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Cookie Consent Banner
+    const cookieConsentBanner = document.getElementById('cookie-consent-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+    const declineCookiesBtn = document.getElementById('decline-cookies-btn');
+
+    function showCookieBanner() {
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === null) { // Show if no consent recorded
+            cookieConsentBanner.classList.remove('translate-y-full');
+        }
+    }
+   <li>
+          <button id="darkModeToggle" aria-label="Toggle Dark Mode"
+            class="ml-4 p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors"
+            title="Toggle Dark Mode">🌙</button>
+        </li>
+    function hideCookieBanner() {
+        cookieConsentBanner.classList.add('translate-y-full');
+    }
+
+    acceptCookiesBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        hideCookieBanner();
+        showToastNotification('Cookies accepted! Enjoy your Browse.', 'success');
+    });
+
+    declineCookiesBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        hideCookieBanner();
+        showToastNotification('Cookies declined. Some features may be limited.', 'warning');
+    });
+
+    // Initial calls on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // !!! IMPORTANT: This line is commented out to allow manual products to be visible.
+        // !!! Uncomment this line if you want the JavaScript to dynamically render products again.
+        // applyFiltersAndSort(); // Ensures products are rendered with any initial filters/sorts
+
+        updateCartDisplay(); // Update cart count on load
+        showCookieBanner(); // Check and show cookie banner
+
+        // Manually attach event listeners for the static "Add to Cart" and "Quick View" buttons
+        // This is only necessary because they are hardcoded and not rendered by renderProducts()
+        document.querySelectorAll('#product-list .add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.productId;
+                const defaultSize = e.currentTarget.dataset.defaultSize;
+                const product = getProductById(productId);
+                if (product) {
+                    addToCart(product, 1, defaultSize);
+                    showToastNotification(`${product.name} (Size: ${defaultSize}) added to cart!`, 'success');
+                } else {
+                    showToastNotification('Product not found! Check product-data.js for ID: ' + productId, 'error');
+                }
+                e.stopPropagation();
+            });
+        });
+
+        document.querySelectorAll('#product-list .view-product-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.productId;
+                openProductModal(productId);
+                e.stopPropagation();
+            });
+        });
+
+    });
+
+  </script>
+  <script type="module">
+  import { addToCart, updateCartDisplay } from './shared.js';
+
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+      const productId = button.dataset.productId;
+      const size = button.dataset.defaultSize;
+      addToCart(productId, size);
+      updateCartDisplay();
+    });
+  });
+</script>
+</body>
+</html>

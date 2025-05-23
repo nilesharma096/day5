@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NiluKicks - Product Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="View detailed information about a specific shoe product at NiluKicks. See images, descriptions, sizes, and add to cart." />
+  <meta name="keywords" content="shoe details, product view, buy shoes, NiluKicks, trendy footwear" />
+  <meta property="og:title" content="NiluKicks - Product Details" />
+  <meta property="og:description" content="Explore detailed product information and add your favorite shoes to cart at NiluKicks." />
+  <meta property="og:image" content="img/social-share-shoes.jpg" />
+  <meta property="og:url" content="https://yourusername.github.io/your-repo-name/product.html" />
+  <meta property="og:type" content="product" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@yourtwitterhandle" />
+  <meta name="twitter:title" content="NiluKicks - Product Details" />
+  <meta name="twitter:description" content="Explore detailed product information and add your favorite shoes to cart at NiluKicks." />
+  <meta name="twitter:image" content="img/social-share-shoes.jpg" />
+  <style>
+    /* Custom styles for smooth transitions and dark mode adjustments */
+    html {
+      transition: background-color 0.3s, color 0.3s;
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Replace G-XXXXXXX
+  </script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100" data-theme="light">
+  <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-md">
+    <nav class="container mx-auto p-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold hover:text-indigo-300">NiluKicks</a>
+      <button id="menuButton" class="lg:hidden btn btn-ghost text-white" aria-label="Toggle Menu" aria-expanded="false">
+        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <ul id="navLinks" class="hidden lg:flex space-x-6 text-lg items-center">
+        <li class="relative w-full max-w-lg">
+            <input type="text" placeholder="Search for shoes..." class="input input-sm input-bordered bg-white text-gray-800 rounded-full pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-full" id="search-input-desktop" />
+            <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
+        </li>
+        <li><a href="index.html" class="hover:text-indigo-300 text-white">Home</a></li>
+        <li><a href="product.html" class="hover:text-indigo-300 text-white font-semibold underline">Shop</a></li>
+        <li><a href="portfolio.html" class="hover:text-indigo-300 text-white">Portfolio</a></li>
+        <li><a href="contact.html" class="hover:text-indigo-300 text-white">Contact</a></li>
+        <li>
+            <a href="cart.html" id="view-cart-btn-desktop" class="btn btn-ghost text-white flex items-center">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.5 14 6.333 14H15a1 1 0 000-2H6.333a.834.834 0 01-.629-.295L4.75 9.184V9.18l-1.5-6H3V1z"></path><path d="M6 14a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                Cart (<span id="cart-count-desktop">0</span>)
+            </a>
+        </li>
+        <li>
+          <button id="darkModeToggle" aria-label="Toggle Dark Mode"
+            class="ml-4 p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors"
+            title="Toggle Dark Mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden bg-indigo-700 text-white hidden flex-col px-6 pb-6 space-y-4">
+      <a href="index.html" class="block py-2 hover:text-indigo-300">Home</a>
+      <a href="product.html" class="block py-2 hover:text-indigo-300 font-semibold underline">Shop</a>
+      <a href="portfolio.html" class="block py-2 hover:text-indigo-300">Portfolio</a>
+      <a href="contact.html" class="block py-2 hover:text-indigo-300 text-white">Contact</a>
+      <div class="relative w-full">
+        <input type="text" placeholder="Search..." class="input input-sm input-bordered bg-white text-gray-800 rounded-full w-full pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-300" id="search-input-mobile" />
+        <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        </button>
+      </div>
+      <a href="cart.html" id="view-cart-btn-mobile" class="btn btn-ghost text-white flex items-center justify-start">
+        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.5 14 6.333 14H15a1 1 0 000-2H6.333a.834.834 0 01-.629-.295L4.75 9.184V9.18l-1.5-6H3V1z"></path><path d="M6 14a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+        Cart (<span id="cart-count-mobile">0</span>)
+      </a>
+      <button id="darkModeToggleMobile" aria-label="Toggle Dark Mode"
+        class="w-full p-2 rounded bg-indigo-600 hover:bg-indigo-800 transition-colors text-center"
+        title="Toggle Dark Mode">🌙</button>
+    </div>
+  </header>
+  <main class="flex-grow container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-screen-2xl mt-12 transition-colors duration-300 dark:bg-gray-800" data-animate>
+    <div id="product-detail-content">
+      <div class="text-center py-10">
+        <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-300">Loading product details...</h2>
+        <span class="loading loading-spinner loading-lg text-indigo-500 mt-4"></span>
+      </div>
+    </div>
+  </main>
+
+  <div class="drawer drawer-end z-50">
+    <input id="cart-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <label for="cart-drawer" id="view-cart-btn" class="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-800 z-40 flex items-center justify-center cursor-pointer">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5H2m5 8a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path>
+        </svg>
+        <span id="cart-count">0</span>
+      </label>
+    </div>
+    <div class="drawer-side">
+      <label for="cart-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside id="cart-sidebar-drawer" class="h-full w-80 bg-gray-100 dark:bg-gray-800 shadow-xl p-6 border-l border-gray-300 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300">Your Cart</h3>
+          <label for="cart-drawer" class="btn btn-sm btn-circle btn-ghost text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-2xl font-semibold">
+            &times;
+          </label>
+        </div>
+        <div id="cart-items" class="space-y-4 overflow-y-auto max-h-[calc(100%-160px)] pb-4">
+          <p id="empty-cart-message" class="text-gray-600 dark:text-gray-400 text-center">Your cart is empty.</p>
+        </div>
+        <div class="border-t border-gray-300 dark:border-gray-700 pt-4 mt-4">
+          <p class="text-xl font-bold flex justify-between">Total: <span id="cart-total">$0.00</span></p>
+          <a href="cart.html" id="checkout-btn" class="w-full mt-4 btn btn-success">View Cart & Checkout</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <button id="scroll-to-top-btn" class="fixed bottom-6 left-6 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-800 transition-opacity duration-300 opacity-0 z-40">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <div id="toast-container" class="fixed top-4 right-4 z-[999] flex flex-col items-end space-y-2"></div>
+
+  <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex flex-col md:flex-row items-center justify-between z-[100] transform translate-y-full transition-transform duration-500">
+    <p class="text-sm text-center md:text-left mb-2 md:mb-0">
+      This site uses cookies to ensure you get the best experience. By continuing to use our site, you agree to our <a href="#" class="underline hover:text-indigo-300 text-white">Cookie Policy</a>.
+    </p>
+    <div class="flex space-x-2">
+      <button id="accept-cookies-btn" class="btn btn-sm btn-primary">Accept</button>
+      <button id="decline-cookies-btn" class="btn btn-sm btn-ghost">Decline</button>
+    </div>
+  </div>
+
+  <footer class="mt-auto bg-indigo-700  text-center p-4 transition-colors duration-300">
+    <p class="text-white">© 2025 NiluKicks. All rights reserved.
+         |
+        <a href="portfolio.html" class="hover:underline text-white">Portfolio</a> |
+        <a href="contact.html" class="hover:underline text-white">Contact</a> |
+        <a href="#" class="hover:underline text-white">Privacy Policy</a> |
+        <a href="#" class="hover:underline text-white">Terms & Conditions</a>
+    </p>
+  </footer>
+
+  <script type="module" src="js/shared.js"></script>
+  <script type="module">
+    import { getProductById } from './js/product-data.js';
+    import { addToCart, showToastNotification, updateCartDisplay } from './js/shared.js';
+
+    const productDetailContent = document.getElementById('product-detail-content');
+
+    function getProductIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id');
+    }
+
+    function renderProductDetails(product) {
+        if (!product) {
+            productDetailContent.innerHTML = `
+                <div class="text-center py-10">
+                    <h2 class="text-3xl font-bold text-error">Product Not Found!</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">The shoe you are looking for does not exist.</p>
+                    <a href="index.html" class="btn btn-primary mt-6">Return to Shop</a>
+                </div>
+            `;
+            return;
+        }
+
+        productDetailContent.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="flex flex-col gap-4">
+                    <img id="main-product-image" src="${product.image}" alt="${product.alt}" class="w-full h-96 object-cover rounded-lg shadow-md mb-4 border border-gray-200 dark:border-gray-600" />
+                    <div class="grid grid-cols-3 gap-2">
+                        <img src="${product.image}" alt="${product.alt} thumbnail 1" class="w-full h-24 object-cover rounded-md cursor-pointer border border-gray-200 dark:border-gray-600 hover:border-indigo-500 transition-colors" onclick="document.getElementById('main-product-image').src='${product.image}'" />
+                        <img src="img/runningshoes2.jpg" alt="Alternate view 2" class="w-full h-24 object-cover rounded-md cursor-pointer border border-gray-200 dark:border-gray-600 hover:border-indigo-500 transition-colors" onclick="document.getElementById('main-product-image').src='img/runningshoes2.jpg'" />
+                        <img src="img/formalshoes2.jpg" alt="Alternate view 3" class="w-full h-24 object-cover rounded-md cursor-pointer border border-gray-200 dark:border-gray-600 hover:border-indigo-500 transition-colors" onclick="document.getElementById('main-product-image').src='img/formalshoes2.jpg'" />
+                    </div>
+                </div>
+
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-4">${product.name}</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">${product.brand} | ${product.category.charAt(0).toUpperCase() + product.category.slice(1)} Collection</p>
+
+                    <p class="text-gray-700 dark:text-gray-200 mb-8 leading-relaxed text-lg">${product.description}</p>
+
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">$${product.price.toFixed(2)}</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+                        <div class="form-control w-full sm:w-auto flex-grow">
+                            <label class="label">
+                                <span class="label-text text-gray-700 dark:text-gray-300">Select Size:</span>
+                            </label>
+                            <select id="product-size-select" class="select select-bordered w-full bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </select>
+                        </div>
+
+                        <div class="form-control w-full sm:w-auto flex-grow">
+                            <label class="label">
+                                <span class="label-text text-gray-700 dark:text-gray-300">Quantity:</span>
+                            </label>
+                            <input type="number" id="product-quantity-input" value="1" min="1" class="input input-bordered w-full bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button id="add-to-cart-btn" class="btn btn-primary btn-lg flex-grow">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.5 14 6.333 14H15a1 1 0 000-2H6.333a.834.834 0 01-.629-.295L4.75 9.184V9.18l-1.5-6H3V1z"></path><path d="M6 14a2 2 0 100 4 2 2 0 000-4zm7 0a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                            Add to Cart
+                        </button>
+                        <a href="cart.html" class="btn btn-outline btn-lg flex-grow">View Cart</a>
+                    </div>
+                     <div class="mt-8">
+                        <h4 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300 mb-2">Product Information:</h4>
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
+                            <li>Brand: <span class="font-bold">${product.brand}</span></li>
+                            <li>Category: <span class="font-bold">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span></li>
+                            <li>Gender: <span class="font-bold">${product.gender.charAt(0).toUpperCase() + product.gender.slice(1)}</span></li>
+                            <li>Product ID: <span class="font-bold">${product.id}</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Populate size dropdown
+        const sizeSelect = document.getElementById('product-size-select');
+        product.sizes.forEach(size => {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = `${size} (Stock: ${product.stock[size] || 0})`;
+            option.disabled = (product.stock[size] || 0) === 0; // Disable if out of stock
+            sizeSelect.appendChild(option);
+        });
+
+        // Set initial selected size if available
+        if (product.sizes.length > 0) {
+            sizeSelect.value = product.sizes[0];
+        }
+
+        // Add to cart button functionality
+        const addToCartButton = document.getElementById('add-to-cart-btn');
+        addToCartButton.addEventListener('click', () => {
+            const selectedSize = sizeSelect.value;
+            const quantity = parseInt(document.getElementById('product-quantity-input').value);
+
+            if (!selectedSize) {
+                showToastNotification('Please select a size.', 'warning');
+                return;
+            }
+            if (quantity < 1) {
+                showToastNotification('Quantity must be at least 1.', 'warning');
+                return;
+            }
+
+            addToCart(product.id, selectedSize, quantity);
+        });
+    }
+
+    // Load product details on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const productId = getProductIdFromUrl();
+        if (productId) {
+            const product = getProductById(productId);
+            renderProductDetails(product);
+        } else {
+            renderProductDetails(null); // Show "Product Not Found" message
+        }
+        updateCartDisplay(); // Ensure cart count is accurate on load
+    });
+  </script>
+</body>
+</html>
